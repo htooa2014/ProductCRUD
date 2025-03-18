@@ -1,0 +1,68 @@
+﻿
+
+@model IEnumerable<ProductCRUD.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Product Listing</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Product</a>
+</p>
+<table class="table table-bordered mt-3">
+    <thead class="table-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+
+                    <a href="@Url.Action("Detail", "Products", new { id = item.Id })" class="btn btn-info btn-sm">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+
+                    <a href="@Url.Action("Edit", "Products", new { id = item.Id })" class="btn btn-warning btn-sm">
+                        <i class="fa-solid fa-pencil"></i> 
+                    </a>
+
+
+                    <a href="@Url.Action("Delete", "Products", new { id = item.Id })" class="btn btn-danger btn-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>                
+                    
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
