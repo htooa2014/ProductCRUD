@@ -22,6 +22,16 @@ namespace ProductCRUD.Controllers
             return View(products);
         }
 
+        // GET: ProductsController/Details/5
+        public ActionResult Details(int id)
+        {
+            var product = _repository.GetProductById(id);
+            if (product == null)
+            {
+                return NotFound(); // Return 404 if product not found
+            }
+            return View(product);
+        }
 
         // GET: ProductsController/Create
         public ActionResult Create()

@@ -8,17 +8,17 @@
 
 <h1>Product Listing</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add Product</a>
-</p>
+<div class="d-flex">
+    <a asp-action="Create" class="btn btn-primary ms-auto">Add Product</a>
+</div>
 <table class="table table-bordered mt-3">
     <thead class="table-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+              SN
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+               Product
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -30,33 +30,33 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Select((value, index) => new { value, index }))
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @(item.index + 1)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.value.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.DisplayFor(modelItem => item.value.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Created)
+                    @Html.DisplayFor(modelItem => item.value.Created)
                 </td>
                 <td>
 
-                    <a href="@Url.Action("Detail", "Products", new { id = item.Id })" class="btn btn-info btn-sm">
+                    <a href="@Url.Action("Details", "Products", new { id = item.value.Id })" class="btn btn-info btn-sm">
                         <i class="fa-solid fa-user"></i>
                     </a>
 
-                    <a href="@Url.Action("Edit", "Products", new { id = item.Id })" class="btn btn-warning btn-sm">
+                    <a href="@Url.Action("Edit", "Products", new { id = item.value.Id })" class="btn btn-warning btn-sm">
                         <i class="fa-solid fa-pencil"></i> 
                     </a>
 
 
-                    <a href="@Url.Action("Delete", "Products", new { id = item.Id })" class="btn btn-danger btn-sm">
+                    <a href="@Url.Action("Delete", "Products", new { id = item.value.Id })" class="btn btn-danger btn-sm">
                         <i class="fa-solid fa-xmark"></i>
                     </a>                
                     
