@@ -1,12 +1,12 @@
 - Need to create Product Table
 
-CREATE TABLE Products (
+CREATE TABLE Products ( 
 Id INT PRIMARY KEY IDENTITY(1,1),
 Name NVARCHAR(100) NOT NULL,
 Description NVARCHAR(255),
-Price DECIMAL(18,2) NOT NULL,
-Created DATETIME DEFAULT GETDATE()
-)
+Price DECIMAL(18,2) NOT NULL, 
+Created DATETIME DEFAULT GETDATE(),
+IsDeleted BIT)
 
 - And need to add sample product data
 
