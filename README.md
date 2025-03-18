@@ -7,7 +7,7 @@ Install-Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
 
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
-
+- Create new database "ProductDB"
 - Need to create Product Table
 
 CREATE TABLE Products ( 
