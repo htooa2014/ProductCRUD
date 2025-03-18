@@ -9,7 +9,7 @@ Created DATETIME DEFAULT GETDATE()
 )
 
 - And need to add sample product data
-- 
+
 INSERT [dbo].[Products] ( [Name], [Description], [Price], [Created]) VALUES ( N'iPhone11', N'the smartphone', CAST(10000000.00 AS Decimal(18, 2)), CAST(N'2025-03-19T02:48:39.177' AS DateTime))
 
 INSERT [dbo].[Products] ( [Name], [Description], [Price], [Created]) VALUES ( N'Vivo', N'the smart mobile phone', CAST(6565600.00 AS Decimal(18, 2)), CAST(N'2025-03-19T02:49:32.363' AS DateTime))
