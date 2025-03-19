@@ -1,3 +1,13 @@
+- Install the required NuGet packages:
+Install-Package Dapper
+
+Install-Package Microsoft.Data.SqlClient
+
+Install-Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+- Create new database "ProductDB"
 - Need to create Product Table
 
 CREATE TABLE Products ( 
