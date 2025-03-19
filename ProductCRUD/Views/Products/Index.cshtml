@@ -1,6 +1,4 @@
-﻿
-
-@model IEnumerable<ProductCRUD.Models.Product>
+﻿@model IEnumerable<ProductCRUD.Models.Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,7 +13,7 @@
     <thead class="table-light">
         <tr>
             <th>
-              SN
+                SN
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -23,9 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Created)
             </th>
@@ -45,9 +41,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.value.Description)
                 </td>
-                <td class="right-align">
-                    @Html.DisplayFor(modelItem => item.value.Price)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.value.Created)
                 </td>
@@ -58,14 +51,14 @@
                     </a>
 
                     <a href="@Url.Action("Edit", "Products", new { id = item.value.Id })" class="btn btn-warning btn-sm">
-                        <i class="fa-solid fa-pencil"></i> 
+                        <i class="fa-solid fa-pencil"></i>
                     </a>
 
 
                     <a href="@Url.Action("Delete", "Products", new { id = item.value.Id })" class="btn btn-danger btn-sm">
                         <i class="fa-solid fa-xmark"></i>
-                    </a>                
-                    
+                    </a>
+
 
                 </td>
             </tr>
