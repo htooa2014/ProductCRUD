@@ -31,6 +31,9 @@ INSERT [dbo].[Products] ( [Name], [Description], [Price], [Created],[IsDeleted])
 INSERT [dbo].[Products] ( [Name], [Description], [Price], [Created],[IsDeleted]) VALUES ( N'Iphone 12', N'the lastest smartphone', CAST(200000.00 AS Decimal(18, 2)), CAST(N'2025-03-19T02:53:56.013' AS DateTime),0)
 
 
+- Change Database server Name in DefaultConnection of appsettings.json file.
+
+
 
 
 
