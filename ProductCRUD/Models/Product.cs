@@ -9,6 +9,7 @@ namespace ProductCRUD.Models
         
         public int Id { get; set; }
 
+        [Display(Name = "Product")]
         public string Name { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;
