@@ -20,13 +20,13 @@ namespace ProductCRUD.Repository
         public IEnumerable<Product> GetAllProducts()
         {
             using var db = Connection;
-            return db.Query<Product>("SELECT * FROM Products WHERE IsDeleted=0 ORDER BY Created ASC");
+            return db.Query<Product>("SELECT * FROM Products ORDER BY Created ASC");
         }
 
         public Product GetProductById(int id)
         {
             using var db = Connection;
-            var product = db.QuerySingleOrDefault<Product>("SELECT * FROM Products WHERE IsDeleted=0 AND Id = @Id", new { Id = id });
+            var product = db.QuerySingleOrDefault<Product>("SELECT * FROM Products WHERE Id = @Id", new { Id = id });
 
             if (product == null)
             {
@@ -40,7 +40,7 @@ namespace ProductCRUD.Repository
         public void AddProduct(Product product)
         {
             using var db = Connection;
-            string sql = "INSERT INTO Products (Name,Description, Price,IsDeleted) VALUES (@Name,@Description, @Price,0)";
+            string sql = "INSERT INTO Products (Name,Description, Price) VALUES (@Name,@Description, @Price)";
             db.Execute(sql, product);
         }
 
@@ -54,7 +54,7 @@ namespace ProductCRUD.Repository
         public void DeleteProduct(int id)
         {
             using var db = Connection;
-            string sql = "UPDATE Products SET IsDeleted=1 WHERE Id = @Id";
+            string sql = "DELETE FROM Products WHERE Id = @Id";
             db.Execute(sql, new { Id = id });
         }
     }
